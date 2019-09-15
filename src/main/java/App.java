@@ -15,6 +15,8 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "newpost-form.hbs");
         }, new HandlebarsTemplateEngine());
+
+
         post("/posts/new", (request, response) -> { //URL to make new post on POST route
             Map<String, Object> model = new HashMap<>();
             String name =request.queryParams("name");
@@ -25,6 +27,10 @@ public class App {
             model.put("post", newPost);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+
+
+
             get("/", (req, res) -> {
                 Map<String, Object> model = new HashMap<>();
                 ArrayList<Post> posts = Post.getAll();
