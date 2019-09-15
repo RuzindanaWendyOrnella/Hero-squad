@@ -1,0 +1,19 @@
+{{#partial "content"}}
+
+   <h1>Post list!</h1>
+
+   {{#if posts}}
+       {{#each posts }}
+        <p>Current post:</p>
+        <p>name: {{name}}</p>
+        <p>Age: {{age}}</p>
+        <p>Powers: {{power}}</p>
+        <p>Weaknesses: {{weakness}}</p>
+            <a href="/posts/{{id}}">read more...</a></p>
+       {{/each}}
+   {{else}}
+    <p>No posts!</p>
+   {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
