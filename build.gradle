@@ -10,21 +10,24 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
 }
-task copyToLib(type: Copy) {
-    into "$buildDir/libs"
-    from(configurations.compile)
-}
 
-stage.dependsOn(copyToLib)
-gradle.taskGraph.whenReady {
-    taskGraph ->
-        if (taskGraph.hasTask(stage)) {
-            test.enabled = false
-        }
-}
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'com.github.jsimone:webapp-runner:8.5.11.3'
     compile "com.sparkjava:spark-core:2.6.0"
     compile "com.sparkjava:spark-template-handlebars:2.5.5" //we'll need this for later!
     compile 'org.slf4j:slf4j-simple:1.7.21' //to ensure easy to read logging.
 }
+task stage() {
+    dependsOn clean, war
+}
+war.mustRunAfter clean
+
+task copyToLib(type: Copy) {
+    into "$buildDir/server"
+    from(configurations.compile) {
+        include "webapp-runner*"
+    }
+}
+
+stage.dependsOn(copyToLib)
