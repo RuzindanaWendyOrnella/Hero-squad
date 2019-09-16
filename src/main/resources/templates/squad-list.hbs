@@ -1,0 +1,20 @@
+{{#partial "content"}}
+
+    <h1 style="color:white">Post list!</h1>
+
+    {{#if squads}}
+        {{#each squads }}
+            <div style="background-color:black;text-align:center">
+                <h1 style="color:white">Current post:</h1>
+                <p style="color:white">Name: {{squadName}}</p>
+                <p style="color:white">Age: {{maxSize}}</p>
+                <p style="color:white">Powers: {{cause}}</p>
+                <a href="/posts/{{id}}">read more...</a></p>
+            </div>
+        {{/each}}
+    {{else}}
+        <p>No squads!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
