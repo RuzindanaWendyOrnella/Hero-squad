@@ -18,16 +18,3 @@ dependencies {
     compile "com.sparkjava:spark-template-handlebars:2.5.5" //we'll need this for later!
     compile 'org.slf4j:slf4j-simple:1.7.21' //to ensure easy to read logging.
 }
-task stage() {
-    dependsOn clean, war
-}
-war.mustRunAfter clean
-
-task copyToLib(type: Copy) {
-    into "$buildDir/server"
-    from(configurations.compile) {
-        include "webapp-runner*"
-    }
-}
-
-stage.dependsOn(copyToLib)
