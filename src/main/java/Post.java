@@ -9,7 +9,7 @@ public class Post {
     private String weakness;
     private int id;
     private static ArrayList<Post> instances = new ArrayList<>();
-    private boolean published; //i’m new
+    private boolean published;
     private LocalDateTime createdAt;
     public Post(String name, int age, String power, String weakness){
 
@@ -17,7 +17,7 @@ public class Post {
         this.age =age;
         this.power=power;
         this.weakness=weakness;
-        this.published = false; //also new
+        this.published = false;
         this.createdAt=LocalDateTime.now();
         instances.add(this);
         this.id=instances.size();
@@ -39,15 +39,12 @@ public class Post {
     public String getWeakness(){
         return weakness;
     }
-   /* public String getContent() {
-            return (name, age, power, weakness, id);
-        }*/
-        public static ArrayList<Post> getAll(){
+    public static ArrayList<Post> getAll(){
             return instances;
         }
 
         public static void clearAllPosts(){
-            instances.clear(); //clear as a method is part of the ArrayList class.
+            instances.clear();
         }
 
         public boolean getPublished(){ //new too

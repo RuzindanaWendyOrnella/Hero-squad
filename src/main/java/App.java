@@ -28,9 +28,6 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-
-
-
             get("/", (req, res) -> {
                 Map<String, Object> model = new HashMap<>();
                 ArrayList<Post> posts = Post.getAll();
