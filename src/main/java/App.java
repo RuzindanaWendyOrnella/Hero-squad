@@ -81,15 +81,26 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-            //get: show an individual post
+        get("/squads/form", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "squad-form.hbs");
+        }, new HandlebarsTemplateEngine());
+        post("squads/form", (request, response) -> { //URL to make new post on POST route
+            Map<String, Object> model = new HashMap<>();
+            String squadName =request.queryParams("squadName");
+            int maxSize = Integer.parseInt(request.queryParams("maxSize"));
+            String cause= request.queryParams("cause");
+            Squad newSquad = new Squad(squadName,maxSize,cause);
+            model.put("post", newSquad);
+            return new ModelAndView(model, "success2.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/list", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Squad> squads = Squad.getAll();
+            model.put("squads", squads);
 
-            //get: show a form to update a post
-
-            //post: process a form to update a post
-
-            //get: delete an individual post
-
-            //get: delete all posts
+            return new ModelAndView(model, "squad-list.hbs");
+        }, new HandlebarsTemplateEngine());
 
         }
     }
