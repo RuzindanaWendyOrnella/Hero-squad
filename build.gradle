@@ -10,7 +10,12 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
 }
+task copyToLib(type: Copy) {
+    into "$buildDir/libs"
+    from(configurations.compile)
+}
 
+stage.dependsOn(copyToLib)
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile "com.sparkjava:spark-core:2.6.0"
