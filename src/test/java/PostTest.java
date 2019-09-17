@@ -73,7 +73,7 @@ public class PostTest {
     }
 
 
-    @Test
+    /*@Test
     public void updateChangesPostContent() throws Exception {
         Post hero = setupNewHero();
         ArrayList<Post> formerContent = hero.getAll();
@@ -95,7 +95,7 @@ public class PostTest {
         Assert.assertEquals(1, Post.getAll().size()); //one is left
         Assert.assertEquals(Post.getAll().get(0).getId(), 2); //the one that was deleted has the id of 2. Why do we care?
     }
-
+*/
     @Test
     public void deleteAllPostsDeletesAllPosts() throws Exception {
         Post hero = setupNewHero();
