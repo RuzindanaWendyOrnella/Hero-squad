@@ -22,7 +22,7 @@ public class PostTest {
 
     @Test
     public void NewHeroObjectGetsCorrectlyCreated_true() throws Exception {
-        Post hero = new Post("Benjamin Carson", 40, "Doctor", "anger");
+        Post hero = new Post("Michael Anders", 40, "Doctor", "anger");
         assertEquals(true, hero instanceof Post);
     }
 
@@ -34,8 +34,8 @@ public class PostTest {
 
     @Test
     public void AllHeroObjectsCorrectlyReturned_true() {
-        Post hero = new Post("Benjamin Carson", 40, "Doctor", "anger");
-        Post otherHero = new Post("Barack Obama", 55, "Ex-President", "arrogance");
+        Post hero = new Post("Michael Anders", 40, "Doctor", "anger");
+        Post otherHero = new Post("Rogers safari", 55, "model", "arrogance");
         assertEquals(true, Post.getAll().contains(hero));
         assertEquals(true, Post.getAll().contains(otherHero));
     }
